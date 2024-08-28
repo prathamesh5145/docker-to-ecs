@@ -13,7 +13,7 @@ phases:
   post_build:
     commands:
       - docker push $AWS_ECR_ACCOUNT_ID.dkr.ecr.$AWS_ECR_REGION.amazonaws.com/$AWS_ECR_REPOSITORY:latest
-      - DOCKER_CONTAINER_NAME=docker-to-ecs
+      - DOCKER_CONTAINER_NAME=student
       - printf '[{"name":"%s","imageUri":"%s"}]' $DOCKER_CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo $DOCKER_CONTAINER_NAME
       - echo printing imagedefinitions.json
