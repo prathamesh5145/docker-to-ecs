@@ -11,6 +11,7 @@ RUN tar -xzf apache-tomcat-9.0.93.tar.gz -C /opt/ && \
     rm -rf ./apache-tomcat-9.0.93.tar.gz
 WORKDIR /opt/apache-tomcat-9.0.93/webapps/
 COPY s3.sh /opt/apache-tomcat-9.0.93/webapps/
+RUN chmod +x /opt/apache-tomcat-9.0.93/webapps/s3.sh
 RUN bash /opt/apache-tomcat-9.0.93/webapps/s3.sh
 EXPOSE 8080
 WORKDIR /opt/apache-tomcat-9.0.93/
